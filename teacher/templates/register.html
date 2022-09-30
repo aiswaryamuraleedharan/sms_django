@@ -1,0 +1,39 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<div class="container text-center py-3">
+    <h2>Student Registration</h2>
+</div>
+<div class="container text-center">
+    <form method = 'POST'>
+        {% csrf_token %}
+        {{form}}
+
+        <input type='submit'>
+    </form>
+</div>
+
+<div class="container text-center py-5">
+    <h2>Student Details</h2>
+
+    <table class="table table-success table-striped">
+        <tr>
+
+            <th>Student_id</th>
+            <th>Name</th>
+            <th>Course</th>
+            
+        </tr>
+        {% for i in data %}
+        <tr>
+            <td>{{i.id}}</td>
+            <td>{{i.name}}</td>
+            <td>{{i.course}}</td>
+
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+{% endblock %}
